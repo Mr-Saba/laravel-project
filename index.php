@@ -10,35 +10,35 @@
 </head>
 
 <body>
-<div class="menu1">
-<span class="blog">Blog</span>
-<span class="template">template</span>
+<nav class="flex">
+ <div class="menu1" >
+     <span class="menu1-text" >template</span>
+     <span class="menu1-text bold">Blog</span>
+ </div>
+ <div class="menu2">
+ <i class="fas fa-search logo"></i>
+ <ul class="menu2-text1">
+     <div class="item1">About</div>
+     <div class="item1">Cooperation</div>
+     <div class="item1">Contact</div>
+     <div class="item2 space">Nature</div>
+     <div class="item2">People</div>
+     <div class="item2">Trips</div>
+     <div class="item2">Animals</div>
+     <div class="item2">Fashion</div>
+     <div class="item2">Tech</div>
+     <div class="item2 bold">. . .</div>
+ </ul>
 </div>
-<div class="menu2">
-    <i class="fas fa-search" id="logo"></i>
-    <span class="item1">About</span>
-    <span  class="item1">Cooperation</span>
-    <span  class="item1">Contact</span>
-    <span  class="item3">Nature</span>
-    <span  class="item2">People</span>
-    <span  class="item2">Trips</span>
-    <span  class="item2">Animals</span>
-    <span  class="item2">Fashion</span>
-    <span  class="item2">Tech</span>
-    <span  class="item2">. . .</span>
-</div>
+</nav>
 <img class="main-img" src="/mziuri/img/12.png" />
 <img class="img1" src="/mziuri/img/123.png" />
 <div class="txt1">Maecenas quis lobortis nunc. Nullam sit</div>
 <div class="txt2">vel odio congue vulputate a ut nisi.</div>
 <button class="butt">People</button>
-<div class="line">
-    <img src="/mziuri/img/14.png" class="img2"/>
-    <button class="tech1">Tech</button>
-    <img src="/mziuri/img/15.png" class="img2"/>
-    <button class="tech2">Tech</button>
-</div>
-<div class="line">
+<div class="container"> 
+    <img src="/mziuri/img/14.png" class="photo"/>
+    <img src="/mziuri/img/15.png" class="photo"/>
     <p class="msg1">Donec elementum dui semper, pretium dui quis, pre- tium nisl. Nunc quis ornare odio.</p>
     <p class="msg2">Maecenas quis lobortis nunc. Nullam sit amet augue vel odio congue vulputate a ut nisi.</p>
 </div>
