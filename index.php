@@ -11,6 +11,15 @@
 </head>
 
 <body>
+ <?php
+     $dbh = new PDO('mysql:host=localhost;dbname=baza', 'root'); 
+     $statement = $dbh->prepare('SELECT * FROM baza LIMIT 10');
+     $statement->execute();
+     $data = $statement->fetchAll();
+     // echo  '<pre>';
+     //    print_r($data);
+     // echo  '</pre>';
+    ?> 
     <nav class="flex">
         <div class="menu1">
             <span class="menu1-text">template</span>
@@ -40,23 +49,17 @@
         <button class="butt">People</button>
     </div>
     <div class="container">
+        <?php for($i=0;$i<min(2,count($data));$i++) { ?>
         <div class="post">
             <div class="post-image">
-                <img src="/mziuri/img/14.png" class="photo" />
-                <span class="post-tag">Trips</span>
+                <img src="<?=$data[$i]['picture']?>" class="photo" />
+                <span class="post-tag"><?=$data[$i]['category']?></span>
             </div>
-            <div class="text">Donec elementum dui semper, pretium dui quis, pre- tium nisl. Nunc quis ornare odio.</div>
-            <div class="date">11 septemvber 2016 | John Doe</div>
+            <div class="text"><?=$data[$i]['summary']?></div>
+            <div class="date"><?=$data[$i]['date']?>||<?=$data[$i]['author']?></div>
         </div>
-        <div class="post">
-            <div class="post-image">
-                <img src="/mziuri/img/15.png" class="photo" />
-                <span class="post-tag">Tech</span>
-            </div>
-            <div class="text">Maecenas quis lobortis nunc. Nullam sit amet augue vel odio congue vulputate a ut nisi.
-            </div>
-            <div class="date">11 septemvber 2016 | John Doe</div>
-        </div>
+        <?php }
+        ?>
         <div class="post-image">
             <img src="/mziuri/img/16.png" class="big-photo" />
             <div class="big-txt">Proin congue elit fringilla</div>
@@ -67,76 +70,43 @@
     </div>
 
     <div class="container">
+        <?php for($i=2;$i<min(5,count($data));$i++) { ?>
         <div class="post1">
             <div class="post-image">
-                <img src="/mziuri/img/11.png" class="photo">
-                <span class="post-tag">Nature</span>
+                <img src="<?=$data[$i]['picture']?>" class="photo">
+                <span class="post-tag"><?=$data[$i]['category']?></span>
             </div>
-            <div class="text">Donec elementum dui semper, pretium dui quis, pre- tium nisl. Nunc quis ornare odio.</div>
-            <div class="date1">11 septemvber 2016 | John Doe</div>
+            <div class="text"><?=$data[$i]['summary']?></div>
+            <div class="date1"><?=$data[$i]['date']?>||<?=$data[$i]['author']?></div>
         </div>
-        <div class="post1">
-            <div class="post-image">
-                <img src="/mziuri/img/22.png" class="photo">
-                <span class="post-tag">People</span>
-            </div>
-            <div class="text">Donec elementum dui semper, pretium dui quis, pre- tium nisl. Nunc quis ornare odio.</div>
-            <div class="date1">11 septemvber 2016 | John Doe</div>
-        </div>
-        <div class="post1">
-        <div class="post-image">
-        <img src="/mziuri/img/33.png" class="photo">
-        <span class="post-tag">Tech</span>
-    </div>
-    <div class="text">Donec elementum dui semper, pretium dui quis, pre- tium nisl. Nunc quis ornare odio.</div>
-            <div class="date1">11 septemvber 2016 | John Doe</div>
-        </div>
+        <?php }
+        ?>
     </div>
         <div class="container">
+        <?php for($i=5;$i<min(8,count($data));$i++) { ?>
         <div class="post1">
             <div class="post-image">
-        <img src="/mziuri/img/44.png" class="photo">
-        <span class="post-tag">Trips</span>
+        <img src="<?=$data[$i]['picture']?>" class="photo">
+        <span class="post-tag"><?=$data[$i]['category']?></span>
             </div>
-            <div class="text">Donec elementum dui semper, pretium dui quis, pre- tium nisl. Nunc quis ornare odio.</div>
-            <div class="date1">11 septemvber 2016 | John Doe</div>
+            <div class="text"><?=$data[$i]['summary']?></div>
+            <div class="date1"><?=$data[$i]['date']?>||<?=$data[$i]['author']?></div>
         </div>
-        <div class="post1">
-            <div class="post-image">
-        <img src="/mziuri/img/55.png" class="photo">
-        <span class="post-tag">Trips</span>
-            </div>
-            <div class="text">Donec elementum dui semper, pretium dui quis, pre- tium nisl. Nunc quis ornare odio.</div>
-            <div class="date1">11 septemvber 2016 | John Doe</div>
-        </div>
-        <div class="post1">
-            <div class="post-image">
-        <img src="/mziuri/img/66.png" class="photo">
-        <span class="post-tag">Fashion</span>
-            </div>
-            <div class="text">Donec elementum dui semper, pretium dui quis, pre- tium nisl. Nunc quis ornare odio.</div>
-            <div class="date1">11 septemvber 2016 | John Doe</div>
-        </div>
+        <?php }
+        ?>
     </div>
     <div class="container">
+    <?php for($i=8;$i<min(10,count($data));$i++) { ?>
         <div class="post">
             <div class="post-image">
-                <img src="/mziuri/img/14.png" class="photo" />
-                <span class="post-tag">Trips</span>
+                <img src="<?=$data[$i]['picture']?>" class="photo" />
+                <span class="post-tag"><?=$data[$i]['category']?></span>
             </div>
-            <div class="text">Donec elementum dui semper, pretium dui quis, pre- tium nisl. Nunc quis ornare odio.</div>
-            <div class="date">11 septemvber 2016 | John Doe</div>
+            <div class="text"><?=$data[$i]['summary']?></div>
+            <div class="date"><?=$data[$i]['date']?>||<?=$data[$i]['author']?></div>
         </div>
-        <div class="post">
-            <div class="post-image">
-                <img src="/mziuri/img/15.png" class="photo" />
-                <span class="post-tag">Tech</span>
-            </div>
-            <div class="text">Maecenas quis lobortis nunc. Nullam sit amet augue vel odio congue vulputate a ut nisi.
-            </div>
-            <div class="date">11 septemvber 2016 | John Doe</div>
-        </div>
-
+        <?php }
+        ?>
     </div>
     <div class="last-1">
         <div class="last-big">Newsletter</div>
@@ -152,15 +122,6 @@
         </div>
         <div class="last-small3">Try awsome tool for desgners symu.co</div>
     </div>
-    <!-- <?php 
-    $dbh = new PDO('mysql:host=localhost;dbname=baza', 'root'); 
-    $statement = $dbh->prepare('SELECT * FROM baza LIMIT 10');
-    $statement->execute();
-    $data = $statement->fetchAll();
-    echo  '<pre>';
-       print_r($data);
-    echo  '</pre>';
-    ?> -->
 </body>
 
 </html>
