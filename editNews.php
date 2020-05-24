@@ -28,7 +28,6 @@ $updateStatement ->execute([
     $Statement->bindParam(':id',$_GET['id']);
     $Statement->execute();
     $News = $Statement->fetch();
-    var_dump($News);
     ?>
   <html>
 
