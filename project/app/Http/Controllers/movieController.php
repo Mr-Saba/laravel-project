@@ -7,15 +7,25 @@ use Illuminate\Http\Request;
 
 class movieController extends Controller
 {
-    public function list() {
-        return Movie::where('published', 0)->orwhere('production_year', 2018)->get();
-    }
-    public function create() {
-        return Movie::create([
-        'title' => 'I am legend',
-        'production_year' => 2019,
-        'poster' => 'ragaca',
-        'summary' => 'something'
+    function movieList() {
+        $movie = Movie::inRandomOrder()->get();
+        return view('movieList', [
+          'movieList' => $movie  
         ]);
+  
+      }
+    public function addMovies(Request $req) {
+        $validationData = $req->validate([
+            'name' => 'required',
+            'language' => 'required',
+            'summary' => 'required',
+            'production_year' => 'required|size:4',
+            'duration' => 'required',
+            'genre' => 'required',
+            'imdb' => 'required|max:10'
+          ]);
+          $info = $req->all();
+          Movie::create($validationData, $info);
+          return redirect('/movieList');
     }
-}
+} 

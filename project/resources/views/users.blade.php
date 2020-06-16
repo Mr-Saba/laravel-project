@@ -13,6 +13,10 @@
             display: block;
             margin: 40px;
         }
+        img {
+            width: 200px;
+            height: 200px;
+        }
     </style>
 </head>
 <body>
@@ -27,9 +31,9 @@
          {{$accounts->email }}
     </div>
     <div><strong>Password:</strong>
-         {{bcrypt($accounts->passwoord) }}
+         {{($accounts->password) }}
     </div>
-        <img src="{{$accounts->photo}}"  title="{{$accounts->name }}"/>
+        <img src="{{ url('storage/' . $accounts->photo) }}"  title="{{$accounts->name }}"/>
     <div>
         <strong>Year of Birth:</strong> {{$accounts->year_of_birth }} 
     </div>

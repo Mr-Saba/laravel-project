@@ -7,11 +7,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/movie/{ id }', 'SabaController@showMovie');
-Route::get('/movies', 'movieController@list');
-Route::get('/movies/create', 'movieController@create');
+Route::view('/avtorizacia', 'login')->name('login');
+Route::post('/avtorizacia', 'formController@login');
+Route::get('/logout', 'formController@logout');
 
+Route::view('logined', 'logined');
 
-Route::get('/indexPage', 'formController@indexPage'); 
- Route::view('/registrationForm', 'registrationForm');
-Route::post('/registrationForm', 'formController@create');
+Route::group(['middleware' => 'auth'], function(){
+    Route::post('/addMovies', 'movieController@addMovies'); 
+    Route::view('/addMovies', 'addMovies');
+    });
+Route::get("/movieList", "movieController@movieList");
+
+    Route::get('/indexPage', 'formController@indexPage'); 
+
+    Route::post('/registrationForm', 'formController@create');
+    Route::view('/registrationForm', 'registrationForm');

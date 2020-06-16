@@ -7,11 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Movie extends Model
 {
     public $fillable = [
-      'title', 
-      'production_year',
-      'poster', 
+      'name',
+      'language',
       'summary',
-      'video_url', 
-      'published'
+      'production_year',
+      'duration', 
+      'genre',
+      'imdb', 
+      'author',
+      'published',
     ];
+    public function author() {
+      return $this->belongsTo('App\User');
+    }
 }
